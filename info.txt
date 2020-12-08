@@ -1,0 +1,2 @@
+npm run dev
+running on localhost:3000
