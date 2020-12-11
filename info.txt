@@ -3,3 +3,4 @@ running on localhost:3000
 expose localhost app endpoints with ngrok to the web
 https://cloud.mongodb.com/v2/5fb7d1ce9004e01a4930d4b9#clusters
 mongodb+srv://admin:<password>@cluster0.9qfbu.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongodb+srv://admin:1234@cluster0.9qfbu.mongodb.net/<dbname>?retryWrites=true&w=majority;

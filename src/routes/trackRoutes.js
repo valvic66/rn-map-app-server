@@ -9,7 +9,6 @@ router.use(requireAuth);
 
 router.get('/tracks', async (req, res) => {
   const { _id } = req.user;
-  console.log(_id);
   const tracks = await Track.find({ userId: _id });
   res.send(tracks);
 });
