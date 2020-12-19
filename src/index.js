@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('./models/User');
 require('./models/Track');
 const express = require('express');
@@ -10,10 +11,9 @@ const requireAuth = require('./middlewares/requireAuth');
 const app = express();
 app.use(bodyParser.json());
 app.use(authRoutes);  
-app.use(trackRoutes);  
+app.use(trackRoutes);
 
-const mongoUrl = 'mongodb+srv://admin:1234@cluster0.9qfbu.mongodb.net/<dbname>?retryWrites=true&w=majority';
-mongoose.connect(mongoUrl, {
+mongoose.connect(process.env.DB_MONGO_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
@@ -27,7 +27,6 @@ mongoose.connection.on('error', (error) => {
 
 app.get('/', requireAuth, (req, res) => {
   res.send(req.user.email);
-  console.log(req.user.email);
 });
 
 app.listen(3000, () => {
